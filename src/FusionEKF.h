@@ -22,6 +22,11 @@ class FusionEKF {
   virtual ~FusionEKF();
 
   /**
+   * Conversion from polar to cartesian system
+   */
+  Eigen::VectorXd Polar2Cartesian(const MeasurementPackage &measurement_pack);
+
+  /**
    * Run the whole flow of the Kalman Filter from here.
    */
   void ProcessMeasurement(const MeasurementPackage &measurement_pack);

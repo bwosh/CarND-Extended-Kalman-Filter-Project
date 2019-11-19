@@ -63,6 +63,19 @@ class KalmanFilter {
 
   // measurement covariance matrix
   Eigen::MatrixXd R_;
+
+ private:
+
+  /**
+   * Updates the state by using standard Kalman Filter equations basing on y value
+   * @param y The measurement at k+1
+   */
+  void PartialUpdate(const Eigen::VectorXd &y);
+
+  /**
+   * Keeps the value at index 1 of vector in range -pi to pi
+   */
+  void ClipToPi(Eigen::VectorXd &v);
 };
 
 #endif // KALMAN_FILTER_H_
