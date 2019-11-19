@@ -34,3 +34,36 @@ This project involves the [Term 2 Simulator](https://github.com/udacity/self-dri
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
+##  The implementation summary
+
+The code follows standards of applying Kalman Filter which contain:
+* Initialization step
+* Prediction step
+* Update step
+
+The data that is received comes from two sources:
+* Laser 
+* Radar
+
+Those two sources differ in terms of:
+* Coordinate system (cartesian vs polar)
+* Data (position vs position with speed)
+
+That's why different transofmarions were applied for those two sources. The algorithm itself tires to combine measurment and prediction in terms of gaussian probability. More lecture about the theory can be viewed [here](https://en.wikipedia.org/wiki/Extended_Kalman_filter).
+
+
+##  Metrics
+
+The error was checked in terms of **RMSE** (Root Mean Squared Error) on Dataset1 and Dataset2 from "Term 2 Simulator" mentioned above.
+
+The results on Dataset1:
+* X: 0.0974
+* Y: 0.0855
+* VX: 0.4517
+* VY: 0.4404
+
+The results on Dataset2:
+* X: 0.0726
+* Y: 0.0965
+* VX: 0.4216
+* VY: 0.4932
